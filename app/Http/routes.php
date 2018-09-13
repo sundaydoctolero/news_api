@@ -1,12 +1,7 @@
 <?php
-Route::group(['middleware' => ['api'],'prefix'=>'api'], function () {
-    Route::post('login', 'AuthController@login');
-    Route::post('signup', 'AuthController@signup');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
-
-    Route::post('sendPasswordResetLink', 'ResetPasswordController@sendEmail');
-    Route::post('resetPassword', 'ChangePasswordController@process');
-    
+Route::group(['prefix'=>'api'], function () {
+   Route::post('/find-property','AuController@findProperty');
+   Route::post('/storeProperty','AuController@saveProperty');
+   Route::get('/properties','AuController@index');
+   Route::get('/get_suburb','PostCodeController@getPostCode');
 });
